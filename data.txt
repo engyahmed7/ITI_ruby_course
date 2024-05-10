@@ -1,0 +1,1 @@
+[{:title=>"newbook\n", :author=>"newauthor\n", :isbn=>"1\n", :count=>2}, {:title=>"book2\n", :author=>"author2\n", :isbn=>"2\n", :count=>1}, {:title=>"book3\n", :author=>"author3\n", :isbn=>"4\n", :count=>1}]
