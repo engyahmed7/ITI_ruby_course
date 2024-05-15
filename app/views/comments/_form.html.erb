@@ -1,0 +1,20 @@
+<%= form_with model: [ @article, @article.comments.build ], local: true, class: "needs-validation", novalidate: true do |form| %>
+  <div class="mb-3">
+    <%= form.label :status, class: "form-label" %>
+    <%= form.select :status, Visible::VALID_STATUSES, { selected: 'public' }, { class: "form-select" } %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :commenter, class: "form-label" %>
+    <%= form.text_field :commenter, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :body, class: "form-label" %>
+    <%= form.text_area :body, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

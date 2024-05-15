@@ -1,0 +1,15 @@
+<h1>Articles</h1>
+
+<p class="lead">Our blog has <%= Article.public_count %> articles and counting!</p>
+
+<ul class="list-group mb-3">
+  <% @articles.each do |article| %>
+    <% unless article.archived? %>
+      <li class="list-group-item">
+        <%= link_to article.title, article, class: "text-decoration-none" %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= link_to "New Article", new_article_path, class: "btn btn-primary" %>
