@@ -1,13 +1,22 @@
 <h1><%= @article.title %></h1>
 
+<%# show image %>
+<% if @article.image.attached? %>
+  <%= image_tag @article.image %>
+<% end %>
 <p><%= @article.body %></p>
 
 <ul>
-  <li><%= link_to "Edit", edit_article_path(@article) %></li>
-  <li><%= link_to "Destroy", article_path(@article), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %></li>
+ <% if can? :edit, @article %>
+  <li> <%= link_to 'Edit', edit_article_path(@article) %> </li>
+<% end %>
+
+<% if can? :destroy, @article %>
+  <li> <%= link_to 'Delete', @article, method: :delete, data: { confirm: 'Are you sure?' } %> </li>
+<% end %>
+
+<%= button_to "Report", report_article_path(@article), method: :post, data: { confirm: "Are you sure you want to report this article?" }, class: "btn btn-danger" %>
+
 </ul>
 
 <h2>Comments</h2>
